@@ -1,7 +1,6 @@
-
 from rest_framework import generics
 from rest_framework.filters import OrderingFilter
-from .serializers import ProductSerializer
+from .serializers import ProductSerializer,RegisterSerializer
 from .models import Product
 
 
@@ -27,4 +26,6 @@ class PostRetrieve(generics.RetrieveAPIView):
     serializer_class = ProductSerializer
     lookup_field = "slug"
 
-
+class RegisterView(generics.CreateAPIView):
+    serializer_class = RegisterSerializer
+    permission_classes = [AllowAny]
